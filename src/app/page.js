@@ -15,11 +15,16 @@ export default function Home() {
     <>
       <FetchDoctors setDoctors={setDoctors} />
       <Navbar doctors={doctors} />
-      <SortOptions doctors={doctors} setDoctors={setDoctors} />
-      <FilterOptions doctorsList={doctors} setDoctors={setDoctors} />
-      {doctors[0] &&
+
+      <div className="flex flex-row items-start justify-center gap-4 p-4">
+        <div className=" sticky top-0 left-0 w-1/4 h-screen bg-white border-r border-gray-200">
+          <SortOptions doctors={doctors} setDoctors={setDoctors} />
+          <FilterOptions doctorsList={doctors} setDoctors={setDoctors} />
+        </div>
+
         <DoctorsList doctors={doctors} />
-        }
+
+      </div>
     </>
   );
 }

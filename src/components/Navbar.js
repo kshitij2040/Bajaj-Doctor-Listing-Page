@@ -25,7 +25,7 @@ export default function Navbar({ doctors }) {
   }, [query, doctors]);
 
   return (
-    <nav className="bg-white shadow-md px-6 py-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between relative">
+    <nav className="bg-white shadow-md px-6 py-4 flex flex-col gap-2 md:flex-row md:items-center md:justify-between sticky top-0 z-50">
       <div className="text-xl font-bold">DoctorFinder</div>
       <div className="relative w-full md:w-96">
         <input
