@@ -2,7 +2,7 @@ import Image from 'next/image';
 
 export default function DoctorCard({ doctor }) {
     return (
-        <div className="w-full max-w-md bg-white rounded-xl shadow-md p-4 flex flex-col gap-3">
+        <div className="w-full max-w-md bg-white rounded-xl shadow-md p-4 flex flex-col gap-3" data-testid="doctor-card">
             <div className="flex items-center gap-4">
                 {console.log("CHECK", doctor)}
                 
@@ -14,8 +14,8 @@ export default function DoctorCard({ doctor }) {
                     className="rounded-full object-cover"
                 />
                 <div>
-                    <h2 className="text-lg font-semibold">{doctor.name}</h2>
-                    <p className="text-sm text-gray-600">
+                    <h2 className="text-lg font-semibold" data-testid="doctor-name">{doctor.name}</h2>
+                    <p className="text-sm text-gray-600" data-testid="doctor-specialty">
                         {doctor.specialities.map((s) => s.name).join(', ')}
                     </p>
                 </div>
@@ -28,14 +28,14 @@ export default function DoctorCard({ doctor }) {
                     <span className="font-medium">Clinic:</span>{' '}
                     {doctor.clinic.name}, {doctor.clinic.address.locality}
                 </div>
-                <div>
+                <div data-testid="doctor-experience">
                     <span className="font-medium">Experience:</span> {doctor.experience}
                 </div>
                 <div>
                     <span className="font-medium">Languages:</span>{' '}
                     {doctor.languages.join(', ')}
                 </div>
-                <div>
+                <div data-testid="doctor-fee">
                     <span className="font-medium">Fees:</span> {doctor.fees}
                 </div>
             </div>

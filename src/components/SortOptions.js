@@ -30,6 +30,7 @@ const SortOptions = ({ doctors, setDoctors }) => {
             <div 
                 className="flex justify-between items-center p-6 cursor-pointer"
                 onClick={() => setIsOpen(!isOpen)}
+                data-testid="filter-header-sort"
             >
                 <h2 className="text-xl text-gray-600 font-medium">Sort by</h2>
                 <svg 
@@ -52,6 +53,7 @@ const SortOptions = ({ doctors, setDoctors }) => {
                             className="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500"
                             checked={selectedSort === 'Price: Low-High'}
                             onChange={() => handleSort('Price: Low-High')}
+                            data-testid="sort-fees"
                         />
                         <label htmlFor="price-low-high" className="ml-3 text-gray-700 text-lg">
                             Price: Low-High
@@ -66,6 +68,7 @@ const SortOptions = ({ doctors, setDoctors }) => {
                             className="w-5 h-5 text-blue-600 border-gray-300 focus:ring-blue-500"
                             checked={selectedSort === 'Experience- Most Experience first'}
                             onChange={() => handleSort('Experience- Most Experience first')}
+                            data-testid="sort-experience"
                         />
                         <label htmlFor="experience" className="ml-3 text-gray-700 text-lg">
                             Experience- Most Experience first

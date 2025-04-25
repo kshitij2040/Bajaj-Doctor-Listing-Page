@@ -96,6 +96,13 @@ const FilterOptions = ({ doctorsList, setDoctors }) => {
         setModeOfConsultation('');
     };
 
+   
+    const getSpecialtyTestId = (specialty) => {
+        
+        const formattedSpecialty = specialty.replace(/\s+/g, '-').replace(/\//g, '-');
+        return `filter-specialty-${formattedSpecialty}`;
+    };
+
     return (
         <div className="bg-white scale-75 rounded-lg shadow p-6">
             <div className="flex justify-between items-center mb-6">
@@ -108,11 +115,12 @@ const FilterOptions = ({ doctorsList, setDoctors }) => {
                 </button>
             </div>
             
-            {/* Specialities Section */}
+            
             <div className="mb-6">
                 <div 
                     className="flex justify-between items-center mb-4 cursor-pointer"
                     onClick={() => setSpecialitiesOpen(!specialitiesOpen)}
+                    data-testid="filter-header-speciality"
                 >
                     <h3 className="text-xl text-gray-600">Specialities</h3>
                     <svg 
@@ -152,6 +160,7 @@ const FilterOptions = ({ doctorsList, setDoctors }) => {
                                         checked={selectedSpecialities.includes(speciality)}
                                         onChange={handleSpecialityChange}
                                         className="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500"
+                                        data-testid={getSpecialtyTestId(speciality)}
                                     />
                                     <label htmlFor={speciality} className="ml-2 text-gray-700">
                                         {speciality}
@@ -163,11 +172,12 @@ const FilterOptions = ({ doctorsList, setDoctors }) => {
                 )}
             </div>
             
-            {/* Mode of Consultation Section */}
+            
             <div>
                 <div 
                     className="flex justify-between items-center mb-4 cursor-pointer"
                     onClick={() => setModeOpen(!modeOpen)}
+                    data-testid="filter-header-moc"
                 >
                     <h3 className="text-xl text-gray-600">Mode of consultation</h3>
                     <svg 
@@ -190,6 +200,7 @@ const FilterOptions = ({ doctorsList, setDoctors }) => {
                                 checked={modeOfConsultation === 'video'}
                                 onChange={() => handleModeChange('video')}
                                 className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                                data-testid="filter-video-consult"
                             />
                             <label htmlFor="video" className="ml-2 text-gray-700">
                                 Video Consultation
@@ -204,6 +215,7 @@ const FilterOptions = ({ doctorsList, setDoctors }) => {
                                 checked={modeOfConsultation === 'in_clinic'}
                                 onChange={() => handleModeChange('in_clinic')}
                                 className="w-4 h-4 text-blue-600 border-gray-300 focus:ring-blue-500"
+                                data-testid="filter-in-clinic"
                             />
                             <label htmlFor="in_clinic" className="ml-2 text-gray-700">
                                 In-clinic Consultation

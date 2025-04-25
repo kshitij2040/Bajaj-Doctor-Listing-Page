@@ -21,7 +21,7 @@ export default function Navbar({ doctors }) {
           doctor.clinic.name.toLowerCase().includes(lowerQuery)
         );
       })
-      .slice(0, 3); // return top 3 matches
+      .slice(0, 3); 
   }, [query, doctors]);
 
   return (
@@ -34,6 +34,7 @@ export default function Navbar({ doctors }) {
           className="w-full px-4 py-2 border border-gray-300 rounded-md"
           value={query}
           onChange={(e) => setQuery(e.target.value)}
+          data-testid="autocomplete-input"
         />
         {query && filteredDoctors.length > 0 && (
           <div className="absolute top-full mt-2 left-0 w-full bg-white border border-gray-200 rounded-md shadow-lg z-10">
@@ -41,6 +42,7 @@ export default function Navbar({ doctors }) {
               <div
                 key={doctor.id}
                 className="flex gap-3 items-center px-4 py-2 hover:bg-gray-100 cursor-pointer"
+                data-testid="suggestion-item"
               >
                 <Image
                   src={doctor.photo}

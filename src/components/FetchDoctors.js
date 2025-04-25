@@ -20,5 +20,5 @@ export default function FetchDoctors ({ setDoctors }) {
         fetchDoctors();
     }, [setDoctors]);
 
-    return null; // This component does not render anything
+    return null; 
 };
